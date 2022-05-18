@@ -31,7 +31,7 @@ public class StaffServiceImpl implements StaffService {
         Staff staff = staffRepository.findByStaffId(userId);
 
         Department department =
-                restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments/" + staff.getDepartmentId()
+                restTemplate.getForObject("http://localhost:9001/department/" + staff.getDepartmentId()
                         ,Department.class);
 
         vo.setStaff(staff);
