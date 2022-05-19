@@ -1,7 +1,13 @@
 server:
   port: 9001
-  spring:
-    application:
-      name: DEPARTMENT-SERVICE
-    zipkin:
-      base-url: http://127.0.0.1:9411/
+#  ban dau la doan nay
+spring:
+  application:
+    name: DEPARTMENT-SERVICE
+
+#thay bang
+#spring:
+#  application:
+#    name: DEPARTMENT-SERVICE
+#zipkin:
+#  base-url: http://127.0.0.1:9411/

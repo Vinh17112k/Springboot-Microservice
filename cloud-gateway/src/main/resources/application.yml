@@ -1,0 +1,44 @@
+server:
+  port: 9191
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri: lb://STAFF-SERVICE
+          predicates:
+            - Path=/user/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: STAFF-SERVICE
+#                fallbackuri: forward:/staffFallBack
+        - id: DEPARTMENT-SERVICE
+          uri: lb://DEPARTMENT-SERVICE
+          predicates:
+            - Path=/department/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: DEPARTMENT-SERVICE
+#                fallbackuri: forward:/departmentFallBack
+
+#doan nay de thong bao khi het thoi gian ket noi
+#hystrix:
+#  command:
+#    fallbackcmd:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 4000
+#
+#doan nay su dung cho hystric-dashboard
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: hystrix.stream
+
